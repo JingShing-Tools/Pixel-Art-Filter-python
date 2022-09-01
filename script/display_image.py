@@ -1,7 +1,7 @@
 import pygame
 import cv2
 import sys
-from settings import resource_path
+from settings import resource_path, sample_image_path
 
 class Display_image:
     def __init__(self, width=500, height=500):
@@ -10,7 +10,7 @@ class Display_image:
         pygame.display.set_caption("Display Screen")
         pygame.display.set_icon(pygame.image.load(resource_path("assets\icon\icon.png")))
 
-        self.image = pygame.transform.scale(pygame.image.load(resource_path("assets\image\\0.png")).convert_alpha(), (width, height))
+        self.image = pygame.image.load(resource_path(sample_image_path)).convert_alpha()
 
     def image_load(self, image_path):
         self.image = pygame.image.load(image_path)

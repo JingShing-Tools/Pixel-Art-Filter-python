@@ -3,7 +3,7 @@ from tkinter import filedialog
 from tkinter.ttk import *
 import re
 from pixel_converter import *
-from settings import resource_path
+from settings import resource_path, sample_image_path
 
 class Gui_helper:
     def __init__(self, display):
@@ -11,8 +11,8 @@ class Gui_helper:
         self.root= Tk()
         self.root.iconbitmap(resource_path('assets/icon/icon.ico'))
 
-        self.image_path = None
-        self.cv_image = cv2.imread(resource_path('assets\image\\0.png'))
+        self.image_path = resource_path(sample_image_path)
+        self.cv_image = cv2.imread(self.image_path)
 
         self.root.title('pixel art styler')
         self.root.geometry('300x300')
