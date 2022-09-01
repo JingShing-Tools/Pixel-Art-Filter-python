@@ -6,6 +6,10 @@ You can get this exe on itch.io : https://jingshing.itch.io/pixel-art-filter
 ## UI
 ![UI UI](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/UI.png)
 
-## Effect
-1. ![OR OR](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/or.jpg)
+## Original image
+![OR OR](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/or.jpg)
 
+## Effect
+![1 1](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/1.jpg)
+![2 2](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/2.jpg)
+![3 3](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/3.jpg)
