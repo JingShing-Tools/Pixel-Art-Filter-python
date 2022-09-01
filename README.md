@@ -11,5 +11,7 @@ You can get this exe on itch.io : https://jingshing.itch.io/pixel-art-filter
 
 ## Effect
 ![1 1](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/1.png)
+
 ![2 2](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/2.png)
+
 ![3 3](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/3.png)
