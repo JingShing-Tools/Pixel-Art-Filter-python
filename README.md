@@ -9,9 +9,9 @@ You can get this exe on itch.io : https://jingshing.itch.io/pixel-art-filter
 ## Original image
 ![OR OR](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/or.jpg)
 
-## Effect
+## Effect 16bit
 ![1 1](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/1.png)
-
+## Effect 4bit
 ![2 2](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/2.png)
-
+## Effect 2bit
 ![3 3](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/3.png)
