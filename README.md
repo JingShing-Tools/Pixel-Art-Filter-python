@@ -21,6 +21,11 @@ You can get this exe on itch.io : https://jingshing.itch.io/pixel-art-filter
   * Add Saturation
   * Add Contrast
   * Add brightness
+  
+## Ver 1.2
+
+* Add more option of color nums, contrast and saturation values
+
 ## New UI
 ![UI2 UI2](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/UI2.png)
 
