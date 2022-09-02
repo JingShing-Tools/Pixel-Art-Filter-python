@@ -4,6 +4,8 @@ A pixel art style filter tool made with python. It can help you turn the picture
 You can get this exe on itch.io : https://jingshing.itch.io/pixel-art-filter
 # Update
 
+# Update
+
 ## Ver 1.0
 
 * Released exe
@@ -17,14 +19,25 @@ You can get this exe on itch.io : https://jingshing.itch.io/pixel-art-filter
 ## Ver 1.1
 
 * Add Chinese text
+* Add compression
 * Feature
   * Add Saturation
   * Add Contrast
   * Add brightness
-  
+
 ## Ver 1.2
 
 * Add more option of color nums, contrast and saturation values
+
+## Ver 1.2.1
+
+* Add maker name
+
+## Ver 1.3
+
+* Add page system
+* Add mode switch
+* Add custom mode -> can edit value you want
 
 ## New UI
 ![UI2 UI2](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/UI2.png)
