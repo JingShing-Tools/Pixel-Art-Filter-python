@@ -30,7 +30,7 @@ class Gui_helper:
         self.color_num_name.grid(column=0, row=1, sticky=N+W)
         self.color_num_select_box = Combobox(self.root, width=5)
         self.color_num_select_box.grid(column=0, row=2, sticky=N+W)
-        self.color_num_select_box['values'] = ['2', '4', '8', '16']
+        self.color_num_select_box['values'] = ['2', '4', '8', '16','32','64', '128']
         self.color_num_select_box.current(0)
         # pixel size
         self.pixel_size_name = Label(self.root,text='Pixel size像素尺寸')
@@ -58,14 +58,14 @@ class Gui_helper:
         self.saturation_name.grid(column=0, row=5, sticky=N+W)
         self.saturation_select_box = Combobox(self.root, width=5)
         self.saturation_select_box.grid(column=0, row=6, sticky=N+W)
-        self.saturation_select_box['values'] = ['-200', '-100', '0', '100', '200']
+        self.saturation_select_box['values'] = ['-200', '-150', '-100', '-50', '0', '50', '100', '150', '200']
         self.saturation_select_box.current(2)
         # contrast
         self.contrast_name = Label(self.root,text='Contrast對比')
         self.contrast_name.grid(column=4, row=5, sticky=N+E)
         self.contrast_select_box = Combobox(self.root, width=5)
         self.contrast_select_box.grid(column=4, row=6, sticky=N+E)
-        self.contrast_select_box['values'] = ['-200', '-100', '0', '100', '200']
+        self.contrast_select_box['values'] = ['-200', '-150', '-100', '-50', '0', '50', '100', '150', '200']
         self.contrast_select_box.current(2)
 
         # dithering
