@@ -39,6 +39,10 @@ You can get this exe on itch.io : https://jingshing.itch.io/pixel-art-filter
 * Add mode switch
 * Add custom mode -> can edit value you want
 
+## Usage
+
+[![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
+
 ## Mode Switch
 * ![custom_mode custom_mode](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/custom_mode.png)
 * ![simple_mode simple_mode](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/simple_mode.png)
