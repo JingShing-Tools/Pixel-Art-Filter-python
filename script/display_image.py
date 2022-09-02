@@ -21,7 +21,6 @@ class Display_image:
         elif mode == 1:
             self.display_screen = pygame.display.set_mode(self.image.get_size())
 
-
     def cv_to_pygame(self, cv_img):
         frame = cv2.cvtColor(cv_img, cv2.COLOR_BGR2RGB)
         frame = cv2.transpose(frame)
