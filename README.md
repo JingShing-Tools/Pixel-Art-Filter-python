@@ -40,7 +40,7 @@ You can get this exe on itch.io : https://jingshing.itch.io/pixel-art-filter
 * Add custom mode -> can edit value you want
 
 ## Usage
-
+You can click pic to watch vid.
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
 
 ## Mode Switch
