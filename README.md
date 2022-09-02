@@ -39,6 +39,10 @@ You can get this exe on itch.io : https://jingshing.itch.io/pixel-art-filter
 * Add mode switch
 * Add custom mode -> can edit value you want
 
+## Ver1.4
+
+* Improved dithering effect. Removed noise points.
+
 ## Usage
 You can click pic to watch vid.
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
