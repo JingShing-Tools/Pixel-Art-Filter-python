@@ -37,6 +37,9 @@ class Display_image:
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    pygame.quit()
-                    sys.exit()
+                    self.quit()
             self.display_update()
+
+    def quit(self):
+        pygame.quit()
+        sys.exit()
