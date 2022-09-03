@@ -52,30 +52,30 @@
 
 ## Ver1.6
 
-* Working on Video module -> can edit mp4 and avi with experiment module.
-  * flv file save has some bug.
-  * This module will eat most of your cpu. So i will wrapped it as another tool.
-* Found bug can't save as chinese character name file.
-* [video module](https://github.com/JingShing/Opencv-Video-edit-module)
+* 正在研發影片模塊 -> 可以編輯mp4、avi的實驗性模塊
+  * flv 格式有些許編碼bug
+  * 這個模塊會吃掉大部分CPU，未來可能分割打包為單一軟件
+* 發現中文檔案名不能保存圖片(模塊不支持中文編碼的保存)
+* [影片模塊](https://github.com/JingShing/Opencv-Video-edit-module)
 
 ## Ver1.6.1
 
 * GIF
 
-  * Fixed gif duration error.
+  * 修復持續時間的問題
 
-  * now can support ".gif "  and " .GIF "
+  * 現已支持 ".gif "  和 " .GIF "
 
-* Video
+* Video影片
 
-  * Try to add video module in pixel art filter.
-  * It's an experimental area. Use it wisely and trust your computer.
-  * Now can transform video but there are some rules and thing you should know:
+  * 嘗試添加影片模塊到主程式
+  * 這是實驗性質的模塊，請小心使用並相信你的電腦，抱持信念。
+  * 現已支持影片轉換，但請遵循以下規則：
     * If it start it won't stop and cannot pause so you need to use it wisely.
     * It will take more time and ate almost your cpu when you use setting that are complex.
     * If it done video cover will display on window. And it will automatically save at the folder you put the exe.
     * Edited video will lost sound and become ultimately large. So be careful.
-  * I add cmd for process hint. It will be there until I removed video edit part.
+  * 加了小黑框，用以提示影片編碼進度，除非我去除影片模塊，不然會一直保留小黑框
 
 ## Usage用法
 You can click pic to watch vid.
