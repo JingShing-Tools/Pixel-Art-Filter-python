@@ -1,5 +1,5 @@
 # Pixel-Art-transform-in-python
-English|[繁體中文](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/README_TCH.md)
+English | [繁體中文](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/README_TCH.md)
 
 A pixel art style filter tool made with python. It can help you turn the picture style into pixel art.
 
