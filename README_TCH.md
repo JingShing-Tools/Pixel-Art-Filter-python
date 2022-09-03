@@ -71,10 +71,10 @@
   * 嘗試添加影片模塊到主程式
   * 這是實驗性質的模塊，請小心使用並相信你的電腦，抱持信念。
   * 現已支持影片轉換，但請遵循以下規則：
-    * If it start it won't stop and cannot pause so you need to use it wisely.
-    * It will take more time and ate almost your cpu when you use setting that are complex.
-    * If it done video cover will display on window. And it will automatically save at the folder you put the exe.
-    * Edited video will lost sound and become ultimately large. So be careful.
+    * 一旦開始了，就不能停下了，請明智的使用。
+    * 如果使用複雜的設定(更高解析度(更小的向素顆粒)、更多顏色、更多功能開啟)則會導致編碼時間大幅增加。請謹慎使用要轉換的部分。
+    * 如果完成轉換，影片封面會顯示在display的視窗。完成後會自動保存檔案。
+    * 轉換後的影片會丟失音軌、變得比原檔大幾倍(因為沒有壓縮每一幀，每一幀都是完美像素)。
   * 加了小黑框，用以提示影片編碼進度，除非我去除影片模塊，不然會一直保留小黑框
 
 ## Usage用法
