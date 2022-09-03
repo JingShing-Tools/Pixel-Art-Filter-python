@@ -59,7 +59,7 @@ You can click pic to watch vid.
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
 
 ## Video supported now
-[![Video](https://img.youtube.com/vi/W8HxlqgLQnQ/maxresdefault.jpg)](https://youtu.be/W8HxlqgLQnQ)
+[![Video](https://i0.hdslb.com/bfs/archive/7220c2155a7e8550a7766eafead297b43cf93426.jpg@640w_400h_1c_!web-space-index-myvideo.webp)](https://youtu.be/W8HxlqgLQnQ)
 
 ## GIF supported now
 * ![gif1 gif1](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/gif1.gif)
