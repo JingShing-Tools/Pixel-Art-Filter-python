@@ -41,9 +41,18 @@ You can get this exe on itch.io : https://jingshing.itch.io/pixel-art-filter
 
 * Improved dithering effect. Removed noise points.
 
+## Ver1.5
+
+* Add gif module.
+* If file is gif it will be gif mode. It will automatic save as gif when transform is done.
+* Now supported gif.
+
 ## Usage
 You can click pic to watch vid.
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
+
+## GIF supported now
+* ![gif1 gif1](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/gif1.gif)
 
 ## Mode Switch
 * ![custom_mode custom_mode](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/custom_mode.png)
