@@ -47,9 +47,19 @@ You can get this exe on itch.io : https://jingshing.itch.io/pixel-art-filter
 * If file is gif it will be gif mode. It will automatic save as gif when transform is done.
 * Now supported gif.
 
+## Ver1.6
+
+* Working on Video module -> can edit mp4 and avi with experiment module.
+  * flv file save has some bug.
+  * This module will eat most of your cpu. So i will wrapped it as another tool.
+* Found bug can't save as chinese character name file.
+
 ## Usage
 You can click pic to watch vid.
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
+
+## Video supported now
+[![Video](https://img.youtube.com/vi/W8HxlqgLQnQ/maxresdefault.jpg)](https://youtu.be/W8HxlqgLQnQ)
 
 ## GIF supported now
 * ![gif1 gif1](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/gif1.gif)
@@ -58,6 +68,7 @@ You can click pic to watch vid.
 ## Mode Switch
 * ![custom_mode custom_mode](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/custom_mode.png)
 * ![simple_mode simple_mode](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/simple_mode.png)
+
 ## New UI
 ![UI2 UI2](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/UI2.png)
 
