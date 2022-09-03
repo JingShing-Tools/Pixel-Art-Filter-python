@@ -55,6 +55,25 @@ You can get this exe on itch.io : https://jingshing.itch.io/pixel-art-filter
 * Found bug can't save as chinese character name file.
 * [video module](https://github.com/JingShing/Opencv-Video-edit-module)
 
+## Ver1.6.1
+
+* GIF
+
+  * Fixed gif duration error.
+
+  * now can support ".gif "  and " .GIF "
+
+* Video
+
+  * Try to add video module in pixel art filter.
+  * It's an experimental area. Use it wisely and trust your computer.
+  * Now can transform video but there are some rules and thing you should know:
+    * If it start it won't stop and cannot pause so you need to use it wisely.
+    * It will take more time and ate almost your cpu when you use setting that are complex.
+    * If it done video cover will display on window. And it will automatically save at the folder you put the exe.
+    * Edited video will lost sound and become ultimately large. So be careful.
+  * I add cmd for process hint. It will be there until I removed video edit part.
+
 ## Usage
 You can click pic to watch vid.
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
