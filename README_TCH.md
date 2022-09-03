@@ -19,36 +19,36 @@
 
 ## Ver 1.1
 
-* Add Chinese text
-* Add compression
-* Feature
-  * Add Saturation
-  * Add Contrast
-  * Add brightness
+* 新增中文提示
+* 增加壓縮圖片功能
+* 功能
+  * 新增飽和度
+  * 新增對比度
+  * 新增明亮度
 
 ## Ver 1.2
 
-* Add more option of color nums, contrast and saturation values
+* 新增更多選項調節
 
 ## Ver 1.2.1
 
-* Add maker name
+* 新增作者名
 
 ## Ver 1.3
 
-* Add page system
-* Add mode switch
-* Add custom mode -> can edit value you want
+* 新增頁面系統
+* 新增模式選擇
+* 新增自定義模式 -> 可以隨意更改數值
 
 ## Ver1.4
 
-* Improved dithering effect. Removed noise points.
+* 增進抖動向素效果，減少噪點
 
 ## Ver1.5
 
-* Add gif module.
-* If file is gif it will be gif mode. It will automatic save as gif when transform is done.
-* Now supported gif.
+* 新增gif模塊
+* 如果導入圖片為gif，則自動切換gif模式。會在轉換完成後自動保存檔案
+* 現已支持gif
 
 ## Ver1.6
 
