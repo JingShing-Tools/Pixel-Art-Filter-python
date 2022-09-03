@@ -2,20 +2,20 @@
 # Pixel-Art-transform-in-python
 [English](https://github.com/JingShing/Pixel-Art-transform-in-python) | 繁體中文
 
-A pixel art style filter tool made with python. It can help you turn the picture style into pixel art.
+一個像素風格的藝術濾鏡工具，使用python製作。可以幫助你將圖片轉換成像素風格。
 
-You can get this exe on itch.io : https://jingshing.itch.io/pixel-art-filter
-# Update
+你可以在這取得應用程式 : https://jingshing.itch.io/pixel-art-filter
+# Update更新
 
 ## Ver 1.0
 
-* Released exe
-* Feature
-  * Color num
-  * Pixel size
-  * Smoothing
-  * Outline
-  * Dithering
+* 發布程式
+* 功能
+  * 顏色數
+  * 向素尺寸
+  * 光滑化
+  * 外框輪廓線
+  * 向素抖動(人工筆觸)
 
 ## Ver 1.1
 
