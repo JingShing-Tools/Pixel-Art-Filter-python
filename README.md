@@ -53,6 +53,7 @@ You can click pic to watch vid.
 
 ## GIF supported now
 * ![gif1 gif1](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/gif1.gif)
+* ![gif2 gif2](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/gif2.gif)
 
 ## Mode Switch
 * ![custom_mode custom_mode](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/custom_mode.png)
