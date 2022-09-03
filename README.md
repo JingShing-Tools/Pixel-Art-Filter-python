@@ -53,6 +53,7 @@ You can get this exe on itch.io : https://jingshing.itch.io/pixel-art-filter
   * flv file save has some bug.
   * This module will eat most of your cpu. So i will wrapped it as another tool.
 * Found bug can't save as chinese character name file.
+* You can see [video module](https://github.com/JingShing/Opencv-Video-edit-module) here.
 
 ## Usage
 You can click pic to watch vid.
