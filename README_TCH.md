@@ -77,33 +77,33 @@
     * Edited video will lost sound and become ultimately large. So be careful.
   * I add cmd for process hint. It will be there until I removed video edit part.
 
-## Usage
+## Usage用法
 You can click pic to watch vid.
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
 
-## Video supported now
+## 現已支持影片格式
 [![Video](https://i0.hdslb.com/bfs/archive/7220c2155a7e8550a7766eafead297b43cf93426.jpg@640w_400h_1c_!web-space-index-myvideo.webp)](https://youtu.be/W8HxlqgLQnQ)
 
-## GIF supported now
+## 現已支持gif
 * ![gif1 gif1](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/gif1.gif)
 * ![gif2 gif2](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/gif2.gif)
 
-## Mode Switch
+## 模式切換
 * ![custom_mode custom_mode](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/custom_mode.png)
 * ![simple_mode simple_mode](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/simple_mode.png)
 
-## New UI
+## 新的UI介面
 ![UI2 UI2](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/UI2.png)
 
 ## UI
 ![UI UI](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/UI.png)
 
-## Original image
+## Original image原圖
 ![OR OR](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/or.jpg)
 
-## Effect 16bit
+## Effect 16bit 16位元
 ![1 1](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/1.png)
-## Effect 4bit
+## Effect 4bit 4位元
 ![2 2](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/2.png)
-## Effect 2bit
+## Effect 2bit 2位元
 ![3 3](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/3.png)
