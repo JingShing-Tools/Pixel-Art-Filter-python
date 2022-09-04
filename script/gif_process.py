@@ -1,18 +1,24 @@
 from PIL import Image,ImageSequence
 import cv2
-import numpy as np
 
 import re
 from pixel_transform import *
+from tqdm import tqdm
 
 def gif_edit(path, k=16, scale=1, blur=0, erode=0, alpha = True, to_tw = False, dither=False, saturation=0, contrast=0):
     gif = Image.open(path)
+
+    gif_length = gif_find_length(gif)
+    process = tqdm(total=gif_length)
+
+    duration = gif.info['duration']
     path.replace('\\', '/')
     file_name = re.split("/|\.", path)[-2]
     file_locat = path.split(file_name + '.gif')[0]
 
     img_list = []
     for frame in ImageSequence.Iterator(gif):
+        process.update(1)
         # frame = frame.convert('RGBA')
         # opencv_img = np.array(frame, dtype=np.uint8)
         # opencv_img = cv2.cvtColor(opencv_img, cv2.COLOR_RGBA2BGRA)
@@ -37,7 +43,7 @@ def gif_edit(path, k=16, scale=1, blur=0, erode=0, alpha = True, to_tw = False, 
 
     # save as gif
     # output[0].save(file_locat + file_name + 'edited' + ".gif", save_all=True, append_images=output[1:], duration=200, loop=0, disposal=0)
-    output[0].save(file_name + 'edited' + ".gif", save_all=True, append_images=output[1:], duration=100, loop=0, disposal=0)
+    output[0].save(file_name + 'edited' + ".gif", save_all=True, append_images=output[1:], duration=duration, loop=0, disposal=0)
     return img_list[0]
 
 def show_gif(img_list):
@@ -50,3 +56,12 @@ def show_gif(img_list):
                 loop = False
                 break
     cv2.destroyAllWindows()
+
+def gif_find_length(gif):
+    try:
+        while 1:
+                gif.seek(gif.tell()+1)
+                # do something to im
+    except EOFError:
+        pass # end of sequence
+    return gif.tell()
