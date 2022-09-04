@@ -90,6 +90,11 @@
 
 * 圖片的顯示窗口現在會限制大小，會限制在 800X600 以內
 
+## Ver1.6.4
+
+* 新增gif預渲染窗口
+* 可以在渲染gif時按"Q"中止渲染
+
 ## Usage用法
 You can click pic to watch vid.
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
