@@ -77,6 +77,15 @@
     * 轉換後的影片會丟失音軌、變得比原檔大幾倍(因為沒有壓縮每一幀，每一幀都是完美像素)。
   * 加了小黑框，用以提示影片編碼進度，除非我去除影片模塊，不然會一直保留小黑框
 
+## Ver1.6.2
+
+* 新增保存成功提示
+* gif的轉換bug修復
+* 新增tqdm模塊，作為進度條提示
+  * 新增進度條到影片和gif的模塊
+* 新增影片渲染的預渲染窗口
+  * 你可以按 "Q" 中止渲染了(會幫你保存渲染好的部分)
+
 ## Usage用法
 You can click pic to watch vid.
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
