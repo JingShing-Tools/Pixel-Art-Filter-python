@@ -76,6 +76,15 @@ You can get this exe on itch.io : https://jingshing.itch.io/pixel-art-filter
     * Edited video will lost sound and become ultimately large. So be careful.
   * I add cmd for process hint. It will be there until I removed video edit part.
 
+## Ver1.6.2
+
+* Add save success hint
+* Found gif convert bug. Fixed.
+* Add tqdm as process bar in cmd.
+  * Add process bar on both gif and video part in cmd.
+* Add video rendering window.
+  * You can press 'Q' to stop rendering video now
+
 ## Usage
 You can click pic to watch vid.
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
