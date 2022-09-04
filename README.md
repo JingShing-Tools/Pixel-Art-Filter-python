@@ -89,6 +89,11 @@ You can get this exe on itch.io : https://jingshing.itch.io/pixel-art-filter
 
 * Windows size will limit in a scope. -> it will be limited in 800 X 600
 
+## Ver1.6.4
+
+* Add gif rendering display window
+* can stop render while rendering gif by pressing 'Q'
+
 ## Usage
 You can click pic to watch vid.
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
