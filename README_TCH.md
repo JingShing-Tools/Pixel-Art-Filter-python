@@ -86,6 +86,10 @@
 * 新增影片渲染的預渲染窗口
   * 你可以按 "Q" 中止渲染了(會幫你保存渲染好的部分)
 
+## Ver1.6.3
+
+* 圖片的顯示窗口現在會限制大小，會限制在 800X600 以內
+
 ## Usage用法
 You can click pic to watch vid.
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
