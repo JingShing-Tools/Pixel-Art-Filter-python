@@ -1,6 +1,6 @@
 
 # Pixel-Art-transform-in-python
-[English](https://github.com/JingShing/Pixel-Art-transform-in-python) | 繁體中文
+[English](https://github.com/JingShing/Pixel-Art-transform-in-python/READ_ME.md) | 繁體中文
 
 一個像素風格的藝術濾鏡工具，使用python製作。可以幫助你將圖片轉換成像素風格。
 
