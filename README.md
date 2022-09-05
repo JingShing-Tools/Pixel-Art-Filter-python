@@ -101,6 +101,7 @@ You can get this exe on itch.io : https://jingshing.itch.io/pixel-art-filter
   * Use scroll down to scale down
   * Use mouse mid button to make image back to original pos and scale rate
   * Can drag image now by left click and moving mouse
+* Add dict to save sets to make code more flexible.
 
 ## Usage
 You can click pic to watch vid.
