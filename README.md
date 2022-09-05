@@ -94,6 +94,14 @@ You can get this exe on itch.io : https://jingshing.itch.io/pixel-art-filter
 * Add gif rendering display window
 * can stop render while rendering gif by pressing 'Q'
 
+## Ver1.7
+
+* Add mouse control:
+  * Use scroll up to scale up
+  * Use scroll down to scale down
+  * Use mouse mid button to make image back to original pos and scale rate
+  * Can drag image now by left click and moving mouse
+
 ## Usage
 You can click pic to watch vid.
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
