@@ -104,6 +104,11 @@
   * 可以按左鍵拖放圖片
 * 新增字典保存設定，讓代碼更靈活
 
+## Ver1.7.1
+
+* 優化放大圖片的解析度
+* 可以保存和導入設置。讀取時保存的模式必須和讀取的模式相同，不然無法正常讀取
+
 ## Usage用法
 You can click pic to watch vid.
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
