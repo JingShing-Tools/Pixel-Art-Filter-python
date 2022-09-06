@@ -103,6 +103,11 @@ You can get this exe on itch.io : https://jingshing.itch.io/pixel-art-filter
   * Can drag image now by left click and moving mouse
 * Add dict to save sets to make code more flexible.
 
+## Ver1.7.1
+
+* Improved scaled image resolution
+* Can import and save sets. But mode should be same as saved set.
+
 ## Usage
 You can click pic to watch vid.
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
