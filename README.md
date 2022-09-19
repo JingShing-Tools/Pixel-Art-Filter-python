@@ -5,7 +5,7 @@ A pixel art style filter tool made with python. It can help you turn the picture
 
 You can get this exe on itch.io : https://jingshing.itch.io/pixel-art-filter
 <details>
-# <summary>Update</summary>
+<summary>Update</summary>
 
 ## Ver 1.0
 
