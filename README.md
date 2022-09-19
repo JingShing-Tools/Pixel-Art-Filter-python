@@ -4,7 +4,8 @@ English | [繁體中文](README_TCH.md)
 A pixel art style filter tool made with python. It can help you turn the picture style into pixel art.
 
 You can get this exe on itch.io : https://jingshing.itch.io/pixel-art-filter
-# Update
+<details>
+# <summary>Update</summary>
 
 ## Ver 1.0
 
@@ -138,3 +139,4 @@ You can click pic to watch vid.
 ![2 2](sample/2.png)
 ## Effect 2bit
 ![3 3](sample/3.png)
+</details>
