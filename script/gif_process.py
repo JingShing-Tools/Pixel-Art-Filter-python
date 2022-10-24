@@ -5,7 +5,7 @@ import re
 from pixel_transform import *
 from tqdm import tqdm
 
-def gif_edit(path, k=16, scale=1, blur=0, erode=0, alpha = True, to_tw = False, dither=False, saturation=0, contrast=0):
+def gif_edit(path, set_dict):
     gif = Image.open(path)
 
     gif_length = gif_find_length(gif)
@@ -24,9 +24,16 @@ def gif_edit(path, k=16, scale=1, blur=0, erode=0, alpha = True, to_tw = False, 
         # opencv_img = cv2.cvtColor(opencv_img, cv2.COLOR_RGBA2BGRA)
 
         # edit area
-        frame = transform(frame, k=k, scale=scale, blur=blur, erode=erode, alpha=alpha, to_tw=to_tw, dither=dither, saturation=saturation, contrast=contrast)
+        frame = transform(frame, set_dict)
+        
+        cv2.imshow('frame_rendering', frame)
+        if cv2.waitKey(1) == ord('q'):
+            # press q to stop render
+            print('Stop rendering video')
+            break
 
         img_list.append(frame)
+    cv2.destroyAllWindows()
 
     # output list
     output = []

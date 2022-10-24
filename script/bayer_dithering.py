@@ -66,14 +66,19 @@ def dither_color_image(image, matrix):
     return cv2.merge((blue, green, red))
 
 def detect_board_color(img, y, x, allow_value, mode, select_color_value=None):
+    # mode : 0, 8 dir. 1, 4 dir.
+    # allow_value
+    # select_color_value should be tuple
     height = img.shape[0]
     width = img.shape[1]
     self_color = img[y][x]
+    tel = False
+    dir = None
     if select_color_value:
         if self_color >= select_color_value[0] and self_color <= select_color_value[1]:
             pass
         else:
-            return False
+            return tel, dir
     if mode == 0:
         x_dir = [1, 1, 1, 1, -1, -1, -1, -1]
         y_dir = [1, -1, 1, -1, 1, -1, 1, -1]
@@ -84,8 +89,15 @@ def detect_board_color(img, y, x, allow_value, mode, select_color_value=None):
             new_x = clamp(new_x, width-1, 0)
             new_color = img[new_y][new_x]
             if self_color >= new_color+allow_value or self_color <= new_color-allow_value:
-                return True
-        return False
+                if select_color_value:
+                    if new_color >= select_color_value[0] and new_color <= select_color_value[1]:
+                        # new color in select_color_value range
+                        return True, i
+                    else:
+                        continue
+                else:
+                    return True, i
+        return tel, dir
     elif mode == 1:
         x_dir = [1, 1, -1, -1]
         y_dir = [1, -1, 1, -1]
@@ -96,8 +108,8 @@ def detect_board_color(img, y, x, allow_value, mode, select_color_value=None):
             new_x = clamp(new_x, width-1, 0)
             new_color = img[new_y][new_x]
             if self_color >= new_color+allow_value or self_color <= new_color-allow_value:
-                return True
-        return False
+                return True, i
+        return tel, dir
         
 def clamp(value, max_num, min_num):
     value = max(value, min_num)
@@ -112,7 +124,8 @@ def process_dither_color_fixed_8_dir(img, matrix, allow_value, mode, select_colo
     matrix_len = len(matrix) - 1
     for row in range(height):
         for col in range(width):
-            if detect_board_color(or_img, row, col, allow_value, mode, select_color_value):
+            tel, dir = detect_board_color(or_img, row, col, allow_value, mode, select_color_value)
+            if tel:
                 color = img[row][col]
                 
                 if color >= (color>>2) > matrix[row&matrix_len][col&matrix_len]:
@@ -129,4 +142,46 @@ def dither_color_image_fix(image, matrix, allow_value, mode, select_color_value=
     process_dither_color_fixed_8_dir(green, matrix, allow_value, mode, select_color_value)
     red=image[:,:,2]
     process_dither_color_fixed_8_dir(red, matrix, allow_value, mode, select_color_value)
+    return cv2.merge((blue, green, red))
+
+def get_dither_map_dir(img, allow_value=30, mode=0, select_color_value=None):
+    or_img = img.copy()
+    height = img.shape[0]
+    width = img.shape[1]
+    dither_map = []
+    for row in range(height):
+        for col in range(width):
+            tel, dir = detect_board_color(or_img, row, col, allow_value, mode, select_color_value)
+            if tel:
+                # color = img[row][col]
+                dither_map.append((row, col, dir))
+    return dither_map                
+
+def get_dither_map_by_gray(image, allow_value=40, mode=0, select_color_value=None):
+    # mode 0 is best. mode 1 is fast
+    gray_img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    return get_dither_map_dir(gray_img, allow_value, mode, select_color_value=select_color_value)
+
+def use_dither_map_to_dither(img, matrix, dither_map):
+    height = img.shape[0]
+    width = img.shape[1]
+    x_dir = [1, 1, 1, 1, -1, -1, -1, -1]
+    y_dir = [1, -1, 1, -1, 1, -1, 1, -1]
+    matrix_len = len(matrix) - 1
+    for pos in dither_map:
+        color = img[pos[0]][pos[1]]
+        if color >= (color>>2) > matrix[pos[0]&matrix_len][pos[1]&matrix_len]:
+            img[pos[0]][pos[1]] = img[clamp(pos[0]+y_dir[pos[2]], height-1, 0)][clamp(pos[1]+x_dir[pos[2]], width-1, 0)]
+        else:
+            pass
+
+def dither_color_image_by_dither_map(image, matrix):
+    # dither_map = get_dither_map_by_gray(image, 30, 0, (0, 100))
+    dither_map = get_dither_map_by_gray(image, 30, 0, (20, 100))
+    blue=image[:,:,0]  #taking the blue channel
+    use_dither_map_to_dither(blue, matrix, dither_map)
+    green=image[:,:,1]
+    use_dither_map_to_dither(green, matrix, dither_map)
+    red=image[:,:,2]
+    use_dither_map_to_dither(red, matrix, dither_map)
     return cv2.merge((blue, green, red))

@@ -14,7 +14,6 @@ def contrast_and_brightness(img, brightness=0 , contrast=100):
     return img
     
 def saturation_and_lightness(img, lightness, saturation):
-
     # origin_img = img
 
     # astype image and turn to float
