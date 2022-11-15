@@ -5,6 +5,39 @@
 一個像素風格的藝術濾鏡工具，使用python製作。可以幫助你將圖片轉換成像素風格。
 
 你可以在這取得應用程式 : https://jingshing.itch.io/pixel-art-filter
+
+## Usage用法
+可以點擊下方圖片[觀看使用影片](https://youtu.be/HpTbwjZv2y0)。
+[![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
+
+## 現已支持影片格式
+可以點擊下方圖片[觀看範例影片](https://youtu.be/W8HxlqgLQnQ)。
+[![Video](https://i0.hdslb.com/bfs/archive/7220c2155a7e8550a7766eafead297b43cf93426.jpg@640w_400h_1c_!web-space-index-myvideo.webp)](https://youtu.be/W8HxlqgLQnQ)
+
+## 現已支持gif
+* ![gif1 gif1](sample/gif1.gif)
+* ![gif2 gif2](sample/gif2.gif)
+
+## 模式切換
+* ![custom_mode custom_mode](sample/custom_mode.png)
+* ![simple_mode simple_mode](sample/simple_mode.png)
+
+## 新的UI介面
+![UI2 UI2](sample/UI2.png)
+
+## UI
+![UI UI](sample/UI.png)
+
+## Original image原圖
+![OR OR](sample/or.jpg)
+
+## Effect 16bit 16位元
+![1 1](sample/1.png)
+## Effect 4bit 4位元
+![2 2](sample/2.png)
+## Effect 2bit 2位元
+![3 3](sample/3.png)
+
 <details>
 <summary>Update更新</summary>
 
