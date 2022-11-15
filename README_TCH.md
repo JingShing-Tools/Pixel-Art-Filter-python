@@ -40,7 +40,7 @@
 ![3 3](sample/3.png)
 
 <details>
-<summary>Update更新</summary>
+<summary>Update Log更新紀錄</summary>
 
 ## Ver 1.0
 
