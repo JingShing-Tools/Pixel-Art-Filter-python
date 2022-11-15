@@ -4,6 +4,38 @@ English | [繁體中文](https://github.com/JingShing/Pixel-Art-transform-in-pyt
 A pixel art style filter tool made with python. It can help you turn the picture style into pixel art.
 
 You can get this exe on itch.io : https://jingshing.itch.io/pixel-art-filter
+## Usage
+You can click pic below to [watch vid](https://youtu.be/HpTbwjZv2y0).
+[![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
+
+## Video supported now
+You can click the image below to watch [the video](https://youtu.be/W8HxlqgLQnQ).
+
+[![Video](https://i0.hdslb.com/bfs/archive/7220c2155a7e8550a7766eafead297b43cf93426.jpg@640w_400h_1c_!web-space-index-myvideo.webp)](https://youtu.be/W8HxlqgLQnQ)
+
+## GIF supported now
+* ![gif1 gif1](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/gif1.gif)
+* ![gif2 gif2](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/gif2.gif)
+
+## Mode Switch
+* ![custom_mode custom_mode](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/custom_mode.png)
+* ![simple_mode simple_mode](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/simple_mode.png)
+
+## New UI
+![UI2 UI2](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/UI2.png)
+
+## UI
+![UI UI](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/UI.png)
+
+## Original image
+![OR OR](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/or.jpg)
+
+## Effect 16bit
+![1 1](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/1.png)
+## Effect 4bit
+![2 2](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/2.png)
+## Effect 2bit
+![3 3](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/3.png)
 <details>
 <summary>Update</summary>
 
