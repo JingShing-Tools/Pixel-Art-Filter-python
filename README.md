@@ -37,7 +37,7 @@ You can click the image below to watch [the video](https://youtu.be/W8HxlqgLQnQ)
 ## Effect 2bit
 ![3 3](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/3.png)
 <details>
-<summary>Update</summary>
+<summary>Update Log</summary>
 
 ## Ver 1.0
 
