@@ -12,6 +12,7 @@
 
 ## 現已支持影片格式
 可以點擊下方圖片[觀看範例影片](https://youtu.be/W8HxlqgLQnQ)。
+
 [![Video](https://i0.hdslb.com/bfs/archive/7220c2155a7e8550a7766eafead297b43cf93426.jpg@640w_400h_1c_!web-space-index-myvideo.webp)](https://youtu.be/W8HxlqgLQnQ)
 
 ## 現已支持gif
