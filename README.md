@@ -4,6 +4,11 @@ English | [繁體中文](https://github.com/JingShing/Pixel-Art-transform-in-pyt
 A pixel art style filter tool made with python. It can help you turn the picture style into pixel art.
 
 You can get this exe on itch.io : https://jingshing.itch.io/pixel-art-filter
+## New Web version
+If you want to set this tool on your server or use it as page version. You can see this ver: [Pixel-Art-Filter-Web](https://github.com/JingShing/Pixel-Art-Filter-Web).
+Image below is what it can done on web and on browser.
+![After](https://github.com/JingShing/Pixel-Art-Filter-Web/blob/main/sample/after.png)
+![After_vid](https://github.com/JingShing/Pixel-Art-Filter-Web/blob/main/sample/video_edited.png)
 ## Usage
 You can click pic below to [watch vid](https://youtu.be/HpTbwjZv2y0).
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
