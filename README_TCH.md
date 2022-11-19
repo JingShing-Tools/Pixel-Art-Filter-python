@@ -4,7 +4,8 @@
 
 一個像素風格的藝術濾鏡工具，使用python製作。可以幫助你將圖片轉換成像素風格。
 
-你可以在這取得應用程式 : https://jingshing.itch.io/pixel-art-filter
+## 如果你需要 [exe程式檔，請點擊這裡](https://jingshing.itch.io/pixel-art-filter)
+你可以在這取得應用程式 : [像素濾鏡工具](https://jingshing.itch.io/pixel-art-filter)
 ## 新的網路版本
 如果你想把這個工具架到伺服器上，或是想在網頁上使用這個工具，可以參考這個項目: [Pixel-Art-Filter-Web](https://github.com/JingShing/Pixel-Art-Filter-Web).
 
