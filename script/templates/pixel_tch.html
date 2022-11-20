@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <link rel="shortcut icon" href="static/icon/favicon.ico" type="image/x-icon" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="可以把圖片變成像素風格">
+    <title>像素濾鏡工具</title>
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/original.css" rel="stylesheet">
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-right">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="./" class="navbar-brand">像素濾鏡工具</a>
+        </div>
+        <div class="collapse navbar-collapse" id="nav-right">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" data-toggle="modal" data-target="#info">更多資訊</a></li>
+                <li><a href="https://twitter.com/shing_jing" target="_blank">Twitter</a></li>
+                <li><a href="https://github.com/JingShing/Pixel-Art-Filter-Web" target="_blank">GitHub</a></li>
+                <li><a href="https://jingshing.com/" target="_blank">SITE</a></li>
+                <li><a href="{{url_for('english')}}" target="_blank">English</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="modal fade in" id="info" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="modal-label">説明</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    對圖像進行馬賽克化 → 將顏色聚類，使其看起來像一個點圖。 <br>
+                    如果您擔心不連續的輪廓或噪聲點，最好平滑它們。 <br>
+                </p>
+                <h4>粗略規格</h4>
+                <ul>
+                    <li>支持的圖像為 jpeg、png、gif、mp4，最大 2MB</li>
+                    <li>圖片分辨率沒有限制，只要在容量範圍內即可，但如果長邊超過1024px，則縮小為1024px</li>
+                    <li><s>雖然可以處理RGBA和灰度圖，但是輸出的時候會轉成RGB<br>
+                        所以透明度被忽略了</s></li>
+                    <li>支持透明PNG<br>
+                    <li>如果勾選“導出為透明PNG”，RGBA圖像將導出為透明PNG</li>
+                    <li>然而，此時alpha通道被擴大到點的大小，半透明被忽略</li>
+                    <li>如果您勾選“只有 1px 對 Twitter 透明”，只有左上角的像素會被導出為具有透明度的透明 PNG<br>
+                    當您想避免在witter被強制壓縮為 jpeg 時使用此選項</li>
+                    <li>處理後的圖像將在保留一定時間後刪除。在SNS等上粘貼時，建議在本地保存一次。</li>
+                </ul>
+                <h4>使用原理</h4>
+                <ul>
+                    <li>使用OpenCV，先將圖像縮小到1/n → 恢復到原來的大小並進行馬賽克</li>
+                    <li>此時，根據需要應用平滑和其他Filter</li>
+                    <li>接下來，使用kmeans將所有像素的顏色分類為k種顏色，求每一種的平均值，替換顏色，減去顏色</li>
+                    <li>結果是經過處理的圖像，看起來像像素藝術</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <form action="./" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>圖像、GIF或影片(最大2MB) <a href="https://github.com/JingShing-Tools/Pixel-Art-transform-in-python" target="_blank">點擊取得沒有大小限制的本地版</a></label>
+                    <input type="file" name="image" accept='image/png,image/jpeg,image/gif,video/mp4,video/avi'>
+                    <input type="hidden" name="last_image" value="{{last_image}}">
+                </div>
+                <div class="form-group">
+                    <div>顏色數量</div>
+                    <label class="radio-inline"><input name="k" type="radio" value="2">2</label>
+                    <label class="radio-inline"><input name="k" type="radio" value="4" checked>4</label>
+                    <label class="radio-inline"><input name="k" type="radio" value="8">8</label>
+                    <label class="radio-inline"><input name="k" type="radio" value="16">16</label>
+                </div>
+                <div class="form-group">
+                    <div>像素大小</div>
+                    <label class="radio-inline"><input name="scale" type="radio" value="1">1</label>
+                    <label class="radio-inline"><input name="scale" type="radio" value="2" checked>2</label>
+                    <label class="radio-inline"><input name="scale" type="radio" value="3">3</label>
+                    <label class="radio-inline"><input name="scale" type="radio" value="4">4</label>
+                    <label class="radio-inline"><input name="scale" type="radio" value="5">5</label>
+                </div>
+                <div class="form-group">
+                    <div>平滑化圖片</div>
+                    <label class="radio-inline"><input name="blur" type="radio" value="0" checked>無</label>
+                    <label class="radio-inline"><input name="blur" type="radio" value="50">弱</label>
+                    <label class="radio-inline"><input name="blur" type="radio" value="100">中</label>
+                    <label class="radio-inline"><input name="blur" type="radio" value="200">強</label>
+                </div>
+                <div class="form-group">
+                    <div>輪廓線增強</div>
+                    <label class="radio-inline"><input name="erode" type="radio" value="0" checked>無</label>
+                    <label class="radio-inline"><input name="erode" type="radio" value="1">弱</label>
+                    <label class="radio-inline"><input name="erode" type="radio" value="2">強</label>
+                </div>
+                <div class="form-group">
+                    <div>飽和度更改</div>
+                    <!-- <label class="radio-inline"><input name="saturation" type="radio" value="-250">-250</label> -->
+                    <!-- <label class="radio-inline"><input name="saturation" type="radio" value="-200">-200</label> -->
+                    <label class="radio-inline"><input name="saturation" type="radio" value="-100">-100</label>
+                    <label class="radio-inline"><input name="saturation" type="radio" value="-50">-50</label>
+                    <label class="radio-inline"><input name="saturation" type="radio" value="0" checked>無</label>
+                    <label class="radio-inline"><input name="saturation" type="radio" value="50">50</label>
+                    <label class="radio-inline"><input name="saturation" type="radio" value="100">100</label>
+                    <!-- <label class="radio-inline"><input name="saturation" type="radio" value="200">200</label> -->
+                    <!-- <label class="radio-inline"><input name="saturation" type="radio" value="250">250</label> -->
+                </div>
+                <div class="form-group">
+                    <div>對比度增減</div>
+                    <!-- <label class="radio-inline"><input name="contrast" type="radio" value="-250">-250</label> -->
+                    <!-- <label class="radio-inline"><input name="contrast" type="radio" value="-200">-200</label> -->
+                    <label class="radio-inline"><input name="contrast" type="radio" value="-100">-100</label>
+                    <label class="radio-inline"><input name="contrast" type="radio" value="-50">-50</label>
+                    <label class="radio-inline"><input name="contrast" type="radio" value="0" checked>無</label>
+                    <label class="radio-inline"><input name="contrast" type="radio" value="50">50</label>
+                    <label class="radio-inline"><input name="contrast" type="radio" value="100">100</label>
+                    <!-- <label class="radio-inline"><input name="contrast" type="radio" value="200">200</label> -->
+                    <!-- <label class="radio-inline"><input name="contrast" type="radio" value="250">250</label> -->
+                </div>
+                <div class="form-group">
+                    <label><input name="alpha" type="checkbox" value="1" checked>導出為透明PNG</label>
+                    <label><input name="to_tw" type="checkbox" value="1" checked>Twitter角落1pixel透明(避免被Twitter強制轉成jpg)</label>
+                </div>
+                <button type="submit" class="btn btn-primary">提交</button>
+            </form>
+            <div class="add-margin-top">
+                <a href="https://twitter.com/share" class="twitter-share-button"
+                   data-url="https://pixel.jingshing.com/" data-text="像素風濾鏡工具" data-size="large"
+                   data-hashtags="像素風濾鏡工具" data-lang="en">Tweet</a>
+                <script>
+                    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+                </script>
+                <p>只是一個按鈕</p>
+            </div>
+        </div>
+        {% if result %}
+        <div class="col-md-9 add-margin-top">
+            <ul class="nav nav-tabs">
+                <li class="nav-item active">
+                    <a href="#result" class="nav-link" data-toggle="tab">結果</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#original" class="nav-link" data-toggle="tab">原圖</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="result" class="tab-pane active">
+                    <img class="img-responsive" src="{{ result }}">
+                    {% if colors %}
+                    <div class="add-margin-top">
+                        {% for color in colors %}
+                        <span class="label" style="background-color: {{ color }};">{{ color }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                <div id="original" class="tab-pane">
+                    <img class="img-responsive" src="{{ org_img }}">
+                </div>
+            </div>
+        </div>
+        {% elif vid_result %}
+        <div class="col-md-9 add-margin-top">
+            <ul class="nav nav-tabs">
+                <li class="nav-item active">
+                    <a href="#result" class="nav-link" data-toggle="tab">結果</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#original" class="nav-link" data-toggle="tab">原圖</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="result" class="tab-pane active">
+                    <video src="{{ vid_result }}" controls="controls"></video>
+                    {% if colors %}
+                    <div class="add-margin-top">
+                        {% for color in colors %}
+                        <span class="label" style="background-color: {{ color }};">{{ color }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                <div id="original" class="tab-pane">
+                    <video src="{{ org_img }}" controls="controls"></video>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="col-md-9">
+            <a class="twitter-timeline"
+               href="https://twitter.com/search?q="
+               data-widget-id="865822650572054529" data-chrome="nofooter noborders" target="_blank">#像素風濾鏡工具</a>
+            <script>
+                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+            </script>
+        </div>
+        <a href="https://github.com/JingShing-Tools/Pixel-Art-transform-in-python" style="position: relative;left: 15px;" data-chrome="nofooter noborders" target="_blank">#如果不想有大小限制，可以試試本地版：像素風濾鏡工具軟體</a>
+        {% endif %}
+        {% if error %}
+        <div class="modal fade in" id="alert" tabindex="-1">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            {{ error }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+{% if error %}
+<script>
+    $(document).ready(function (){
+        $('#alert').modal();
+    });
+</script>
+{% endif %}
+</body>
+</html>
