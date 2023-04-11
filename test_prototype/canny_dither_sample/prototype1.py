@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+# 透過canny檢測邊緣後透過order dither處理邊緣的代碼
 
 # 讀取圖像
 img = cv2.imread('input_image.jpg')
