@@ -52,22 +52,14 @@ class Gui_helper_main:
         elif input_str[0] == '+' or input_str[0] == '-' or str.isdigit(input_str[0]):
             str_len = len(input_str)
             cmp_str = input_str[1:str_len]
-            # print(cmp_str)
             if str.isdigit(cmp_str) or cmp_str == '':
                 return True
             else:
                 return False
-        # elif str.isdigit(input_str) or input_str == '':
-        #     return True
         else:
             return False
 
     def switch_frame(self, index):
-        # new_frame = frame_class(self)
-        # if self.frame is not None:
-        #     self.frame.destroy()
-        #     del self.frame
-        #     self.frame.kill()
         if self.frame is not None:
             self.frame.grid_forget()
         self.frame_index = index

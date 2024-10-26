@@ -19,11 +19,6 @@ def gif_edit(path, set_dict):
     img_list = []
     for frame in ImageSequence.Iterator(gif):
         process.update(1)
-        # frame = frame.convert('RGBA')
-        # opencv_img = np.array(frame, dtype=np.uint8)
-        # opencv_img = cv2.cvtColor(opencv_img, cv2.COLOR_RGBA2BGRA)
-
-        # edit area
         frame = transform(frame, set_dict)
         
         cv2.imshow('frame_rendering', frame)

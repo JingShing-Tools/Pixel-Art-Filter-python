@@ -5,111 +5,102 @@ from bayer_dithering import *
 from contrast_and_saturation import contrast_and_brightness, saturation_and_lightness
 from settings import pixel_set_dict_to_all_sets
 
-n8 = np.array([[1, 1, 1],
-               [1, 1, 1],
-               [1, 1, 1]],
-              np.uint8)
-
-n4 = np.array([[0, 1, 0],
-               [1, 1, 1],
-               [0, 1, 0]],
-              np.uint8)
+n8 = np.ones((3, 3), np.uint8)
+n4 = np.array([[0, 1, 0], [1, 1, 1], [0, 1, 0]], np.uint8)
 
 def transform(src, set_dict):
     k, scale, color, blur, erode, alpha, to_tw, dither, saturation, contrast = pixel_set_dict_to_all_sets(set_dict)
-    # if src is string means it's a path
-    # else it is PIL image
-    if type(src).__name__ == 'ndarray':
-        alpha_mode = False
-        img = src
-    else:
-        if type(src).__name__=='str':
-            img_pl = Image.open(src)
-        elif type(src).__name__=='JpegImageFile':
-            img_pl = src
-        elif type(src).__name__=='GifImageFile':
-            img_pl = src
-        else:
-            img_pl = src
+    
+    # 判斷 src 類型並加載圖片
+    img, alpha_mode = load_image(src, alpha)
+    
+    # 色彩處理
+    img = process_color(img, color, alpha_mode)
+    h, w = img.shape[:2]
+    d_h, d_w = int(h / scale), int(w / scale)
 
-        if (img_pl.mode == 'RGBA' or img_pl.mode == 'P') and alpha:
-            if img_pl.mode != 'RGBA':
-                img_pl = img_pl.convert('RGBA')
-            alpha_mode = True
-        elif img_pl.mode != 'RGB' and img_pl.mode != 'L':
-            img_pl = img_pl.convert('RGB')
-            alpha_mode = False
-        else:
-            alpha_mode = False
-            
-        img = np.asarray(img_pl)
+    # 圖像處理：腐蝕、模糊和縮放
+    img = apply_filters(img, erode, blur, d_w, d_h)
 
+    # 飽和度和對比度調整
+    img = apply_saturation_contrast(img, saturation, contrast)
+
+    # K-means 色彩量化
+    img = apply_kmeans(img, k, color, d_w, d_h, scale, alpha_mode, to_tw)
+
+    # 抖動處理
+    if dither:
+        img = dither_color_image_by_dither_map(img, bayerMatrix_8X8_1)
+    
+    return img
+
+def load_image(src, alpha):
+    if isinstance(src, np.ndarray):
+        return src, False
+
+    img = Image.open(src) if isinstance(src, str) else src
+    alpha_mode = (img.mode in ('RGBA', 'P') and alpha)
+    
+    if alpha_mode:
+        img = img.convert('RGBA') if img.mode != 'RGBA' else img
+    elif img.mode not in ('RGB', 'L'):
+        img = img.convert('RGB')
+        
+    return np.asarray(img), alpha_mode
+
+def process_color(img, color, alpha_mode):
     if color and alpha_mode:
-        a = img[:, :, 3]
         img = cv2.cvtColor(img, cv2.COLOR_BGRA2RGB)
-        h, w, c = img.shape
     elif color:
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        h, w, c = img.shape
     else:
         img = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
-        h, w = img.shape
-        c = 0
-    d_h = int(h / scale)
-    d_w = int(w / scale)
-    if erode == 1:
-        img = cv2.erode(img, n4, iterations=1)
-    elif erode == 2:
-        img = cv2.erode(img, n8, iterations=1)
+    return img
+
+def apply_filters(img, erode, blur, d_w, d_h):
+    if erode:
+        kernel = n4 if erode == 1 else n8
+        img = cv2.erode(img, kernel, iterations=1)
     if blur:
         img = cv2.bilateralFilter(img, 15, blur, 20)
+    return cv2.resize(img, (d_w, d_h), interpolation=cv2.INTER_NEAREST)
 
-    img = cv2.resize(img, (d_w, d_h), interpolation=cv2.INTER_NEAREST)
-
+def apply_saturation_contrast(img, saturation, contrast):
     if saturation != 0:
         img = saturation_and_lightness(img, lightness=0, saturation=saturation)
     if contrast != 0:
         img = contrast_and_brightness(img, brightness=0, contrast=contrast)
+    return img
 
-    if dither:
-        img = dither_color_image_by_dither_map(img, bayerMatrix_8X8_1)
-        # cv2.imshow('img', img)
-        # img = dither_color_image(img, bayerMatrix_8X8_1)
-
-    if alpha_mode:
-        a = cv2.resize(a, (d_w, d_h), interpolation=cv2.INTER_NEAREST)
-        a = cv2.resize(a, (d_w * scale, d_h * scale), interpolation=cv2.INTER_NEAREST)
-        a[a != 0] = 255
-        if not 0 in a:
-            a[0, 0] = 0
-    if color:
-        img_cp = img.reshape(-1, c)
-    else:
-        img_cp = img.reshape(-1)
-    img_cp = img_cp.astype(np.float32)
-    criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10, 1.0)
-    ret, label, center = cv2.kmeans(img_cp, k, None, criteria, 10, cv2.KMEANS_PP_CENTERS)
+def apply_kmeans(img, k, color, d_w, d_h, scale, alpha_mode, to_tw):
+    img_cp = img.reshape(-1, img.shape[2] if color else 1).astype(np.float32)
+    _, label, center = cv2.kmeans(img_cp, k, None, (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10, 1.0), 10, cv2.KMEANS_PP_CENTERS)
     center = center.astype(np.uint8)
-    result = center[label.flatten()]
-    result = result.reshape((img.shape))
+    result = center[label.flatten()].reshape(img.shape)
     result = cv2.resize(result, (d_w * scale, d_h * scale), interpolation=cv2.INTER_NEAREST)
+    
     if alpha_mode:
-        r, g, b = cv2.split(result)
-        result = cv2.merge((r, g, b, a))
+        result = add_alpha_channel(result, img, d_w, d_h, scale)
     elif to_tw:
-        r, g, b = cv2.split(result)
-        a = np.ones(r.shape, dtype=np.uint8) * 255
-        a[0, 0] = 0
-        result = cv2.merge((r, g, b, a))
-    # colors = get_color(center)
-
+        result = add_transparency_channel(result)
+        
     return result
 
+def add_alpha_channel(result, img, d_w, d_h, scale):
+    alpha_channel = cv2.resize(img[:, :, 3], (d_w, d_h), interpolation=cv2.INTER_NEAREST)
+    alpha_channel = cv2.resize(alpha_channel, (d_w * scale, d_h * scale), interpolation=cv2.INTER_NEAREST)
+    alpha_channel[alpha_channel != 0] = 255
+    if not 0 in alpha_channel:
+        alpha_channel[0, 0] = 0
+    return cv2.merge((*cv2.split(result), alpha_channel))
+
+def add_transparency_channel(result):
+    r, g, b = cv2.split(result)
+    alpha_channel = np.ones(r.shape, dtype=np.uint8) * 255
+    alpha_channel[0, 0] = 0
+    return cv2.merge((r, g, b, alpha_channel))
+
 def get_color(center):
-    # get colors
-    colors = []
-    for res_c in center:
-        color_code = '#{0:02x}{1:02x}{2:02x}'.format(res_c[2], res_c[1], res_c[0])
-        colors.append(color_code)
+    colors = ['#{:02x}{:02x}{:02x}'.format(*map(int, c[::-1])) for c in center]
     print(colors)
     return colors
