@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import filedialog
 from tkinter.ttk import *
 import re
-from pixel_converter import *
+from pixel_process.pixel_converter import *
 from settings import resource_path, sample_image_path
 from tkinter import messagebox
 from settings import pixel_set_to_dict

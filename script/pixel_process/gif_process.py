@@ -2,7 +2,7 @@ from PIL import Image,ImageSequence
 import cv2
 
 import re
-from pixel_transform import *
+from pixel_process.pixel_transform import *
 from tqdm import tqdm
 
 def gif_edit(path, set_dict):

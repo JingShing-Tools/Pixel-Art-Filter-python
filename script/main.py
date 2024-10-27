@@ -1,6 +1,5 @@
-from pixel_converter import *
-from gui_helper_new import *
-from display_image import Display_image
+from pixel_process.gui_helper_new import Gui_helper_main
+from pixel_process.display_image import Display_image
 from threading import Thread
 
 def gui_run(display):

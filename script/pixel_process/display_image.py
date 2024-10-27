@@ -1,9 +1,9 @@
 import pygame
 import cv2
 import sys
-import re
 from settings import resource_path, sample_image_path
 
+# pygame window can use mouse to controll
 class Display_image:
     def __init__(self, width=500, height=500):
         pygame.init()
